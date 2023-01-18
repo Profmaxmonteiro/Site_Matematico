@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto programadorBR</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body><!DOCTYPE html>
+<html>
+  <head>
+    <title>Site Matemático</title>
+  </head>
+  <body>
+    <header>
+      <h1>Site Matemático</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Produtos</h2>
+      <ul>
+        <li>
+          <h3>Livro de Matemática Básica</h3>
+          <p>Este livro cobre os conceitos básicos de matemática, incluindo álgebra, geometria e trigonometria.</p>
+          <button id="add-to-cart-btn" onclick="addToCart()">Adicionar ao carrinho</button>
+        </li>
+        <li>
+          <h3>Curso de Cálculo</h3>
+          <p>Este curso ensina os conceitos avançados de cálculo, incluindo derivadas e integrais.</p>
+          <button id="add-to-cart-btn" onclick="addToCart()">Adicionar ao carrinho</button>
+        </li>
+      </ul>
+      <div id="cart">
+        <h2>Carrinho</h2>
+        <ul id="cart-items"></ul>
+        <p id="cart-total"></p>
+        <button id="checkout-btn" onclick="checkout()">Finalizar compra</button>
+      </div>
+    </main>
+    <footer>
+      <p>Copyright &copy;2022 - Todos os direitos reservados</p>
+    </footer>
+    <script>
+      // Inicializando array para armazenar itens do carrinho
+      let cartItems = [];
+
+      // Função para adicionar item ao carrinho
+      function addToCart() {
+        let item = {
+          name: "Livro de Matemática Básica",
+          price: 49.99
+        };
+
+        // Adicionando item ao array de itens do carrinho
+        cartItems.push(item);
+
+        // Atualizando a exibição dos itens do carrinho
+        updateCartDisplay();
+      }
+
+      // Função para atualizar a exibição dos itens do carrinho
+      function updateCartDisplay() {
+        let cartItemsList = document.getElementById("cart-items");
+       
+    let total = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+      let item = cartItems[i];
+      total += item.price;
+
+      let itemElement = document.createElement("li");
+      itemElement.innerHTML = item.name + " - R$ " + item.price;
+      cartItemsList.appendChild(itemElement);
+    }
+
+    // Exibindo o valor total do carrinho
+    let cartTotal = document.getElementById("cart-total");
+    cartTotal.innerHTML = "Total: R$ " + total;
+  }
+
+  // Função para finalizar a compra
+  function checkout() {
+    alert("Obrigado por sua compra! Seu pedido está sendo processado.");
+    // Adicionar código para enviar a compra para o servidor
+    // Limpar o carrinho
+    cartItems = [];
+    updateCartDisplay();
+  }
+</script>
+</body>
+
+</html></body>
+</html>
